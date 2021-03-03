@@ -15,7 +15,7 @@ public class Board
                     {"0", "0", "0", "0", "0", "0", "0", "0"},
             };
 
-    // Pieces: | 5, 4, 3, 3, 2 |
+    // Pieces: | 5, 4, 3, 3, 2 | ○
 
     public boolean checkForHit(int x, int y)
     {
