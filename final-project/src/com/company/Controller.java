@@ -39,32 +39,6 @@ public class Controller
                     {
                         break;
                     }*/
-
-                case 2:
-                    /*humanVComp();
-                    prompt =  promptForInt("Would you like to play again? \n 1: Yes    0: No \n", 0,1);
-                    if(prompt == 0)
-                    {
-                        userChoice = 0;
-                        break;
-                    } else
-                    {
-                        break;
-                    }*/
-
-                case 3:
-                    /*compVComp();
-                    prompt =  promptForInt("Would you like to play again? \n 1: Yes    0: No \n", 0,1);
-                    if(prompt == 0)
-                    {
-                        userChoice = 0;
-                        break;
-                    } else
-                    {
-                        break;
-                    }*/
-
-
             }
         } while (userChoice > 0);
     }
