@@ -12,7 +12,7 @@ public class Controller
 
     public void run()
     {
-        Board P1
+        new Board().printBoard("Yeuh", "Yeuh");
     }
 
 
