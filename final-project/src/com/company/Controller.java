@@ -1,5 +1,7 @@
 package com.company;
 
+import models.Board;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,7 +12,7 @@ public class Controller
 
     public void run()
     {
-
+        Board P1
     }
 
 
