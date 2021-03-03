@@ -32,6 +32,5 @@ public class Board
                 System.out.print("[" + board[a][i] + "] ");
             }
         }
-
     }
 }
