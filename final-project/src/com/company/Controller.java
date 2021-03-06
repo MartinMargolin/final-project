@@ -15,7 +15,6 @@ public class Controller
     {
         // new Board().printBoard("Yeuh", "Yeuh");
 
-
         mainMenu();
     }
 
@@ -111,7 +110,7 @@ public class Controller
             userChoice = promptForInt(mainMenu, minOption, maxOption);
             switch (userChoice) {
                 case 1:
-                    /*humanVHuman();*/
+                    /*playerVPlayer();*/
                     /*prompt =  promptForInt("Would you like to play again? \n 1: Yes    0: No \n", 0,1);
                     if(prompt == 0)
                     {
