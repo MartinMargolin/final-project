@@ -10,6 +10,7 @@ public class Controller
 {
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
     int turnRotation;
+    int turn;
     Board B1 = new Board();
     Board B2 = new Board();
 
@@ -41,27 +42,22 @@ public class Controller
             B2.setName("Player2");
         }
 
-        Board board = new Board();
         int game = 1;
-        /*board.printBoard(P1.getName(), P2.getName());
-        startingPlayer(P1.getName(), P2.getName());*/
 
-        /*if (turnRotation == 1) {
-            P1.setColor("Y");
-            P2.setColor("R");
-        } else if (turnRotation == 2) {
-            P2.setColor("Y");
-            P1.setColor("R");
-        }*/
+        // Create Method to place pieces and call it here
 
+
+        /*board.printBoard(B1.getName(), B2.getName());*/
+        /*startingPlayer(P1.getName(), P2.getName());*/
         do {
 
             switch (turnRotation) {
 
                 case 1:
-                    /*board.printBoard(P1.getName(), P2.getName());
-                    turn = promptForInt("\n\n" + P1.getName() + " place your piece (1-7): ", 1, 7);
-                    try {
+                    B2.printBoard(B1.getName(), B2.getName());
+                    turn = promptForInt("\n\n" + B1.getName() + " drop a bomb!! (///): ", 1, 8);
+
+                    /*try {
                         board.placePiece(P1.getColor(), turn);
                     } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
                         System.out.println("Your move was invalid. " + "\n" + "Try again!!");
@@ -71,16 +67,16 @@ public class Controller
                         System.out.println("Player:" + P1.getName() + " has won the game!");
                         game = 0;
                         break;
-                    }
+                    }*/
 
                     turnRotation = 2;
-                    break;*/
+                    break;
 
                 case 2:
-                    /*board.printBoard(P1.getName(), P2.getName());
-                    turn = promptForInt("\n\n" + P2.getName() + " place your piece (1-7): ", 1, 7);
+                    B1.printBoard(B1.getName(), B2.getName());
+                    turn = promptForInt("\n\n" + B2.getName() + " drop a bomb!! (///): ", 1, 8);
 
-                    try {
+                    /*try {
                         board.placePiece(P2.getColor(), turn);
                     } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
                         System.out.println("Your move was invalid. " + "\n" + "Try again!!");
