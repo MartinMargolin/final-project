@@ -6,7 +6,7 @@ public class Board
 
     public void setName(String in) {
         System.out.println("Your player name is: " + in);
-        name = in;
+        this.name = in;
     }
 
     public String getName() {
@@ -31,7 +31,19 @@ public class Board
     public boolean checkForHit(int x, int y)
     {
 
-    return false;
+    if(board[x-1][y-1] == "○")
+    {
+        board[x-1][y-1] = "X";
+        System.out.println("You Have Hit!");
+        return true;
+
+    }
+    else
+    {
+        System.out.println("You Have Missed!");
+        return false;
+    }
+
     }
 
     public void printBoard(String p1, String p2) {
@@ -47,7 +59,11 @@ public class Board
 
     public void setPiece(int pieceSize, int rotationFromCenter, int x, int y)
     {
-
+        int shift = 0;
+        for(int i = 0; i < pieceSize; i++)
+        {
+            board[x-1][y-1] = "○";
+        }
 
     }
 
@@ -55,7 +71,7 @@ public class Board
     {
         for(int i = 0; i < pieceSize; i++)
         {
-            int shift = 1;
+            int shift = 0;
 
             switch(rotationFromCenter) {
                 case 1:
