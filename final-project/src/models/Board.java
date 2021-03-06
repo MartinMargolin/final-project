@@ -41,4 +41,9 @@ public class Board
 
     }
 
+    public boolean checkPieceOK()
+    {
+        return false;
+    }
+
 }
