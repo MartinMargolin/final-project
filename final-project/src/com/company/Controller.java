@@ -13,7 +13,10 @@ public class Controller
 
     public void run()
     {
-        new Board().printBoard("Yeuh", "Yeuh");
+        // new Board().printBoard("Yeuh", "Yeuh");
+
+
+        mainMenu();
     }
 
     public void playerVPlayer() {
