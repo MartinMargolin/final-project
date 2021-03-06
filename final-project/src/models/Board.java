@@ -34,4 +34,11 @@ public class Board
             }
         }
     }
+
+    public void setPiece(int pieceSize, int rotationFromCenter, int x, int y)
+    {
+
+
+    }
+
 }
