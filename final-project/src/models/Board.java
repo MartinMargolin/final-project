@@ -51,9 +51,58 @@ public class Board
 
     }
 
-    public boolean checkPieceOK()
+    public boolean checkPieceOK(int pieceSize, int rotationFromCenter, int x, int y)
     {
-        return false;
+        for(int i = 0; i < pieceSize; i++)
+        {
+            int shift = 1;
+
+            switch(rotationFromCenter) {
+                case 1:
+                    if (board[x][y + shift] == "○")
+                    {
+                        return false;
+
+                    }
+                    else
+                    {
+                        break;
+                    }
+
+                case 2:
+                    if (board[x][y - shift] == "○")
+                    {
+                        return false;
+
+                    }
+                    else
+                    {
+                        break;
+                    }
+                case 3:
+                    if (board[x - shift][y] == "○")
+                    {
+                        return false;
+                    }
+
+                    else
+                    {
+                        break;
+                    }
+
+                case 4:
+                    if (board[x + shift][y] == "○")
+                    {
+                        return false;
+
+                    }
+                    else
+                    {
+                        break;
+                    }
+            }
+        }
+        return true;
     }
 
 }
