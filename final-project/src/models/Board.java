@@ -2,6 +2,16 @@ package models;
 
 public class Board
 {
+    String name = "Player"; // default
+
+    public void setName(String in) {
+        System.out.println("Your player name is: " + in);
+        name = in;
+    }
+
+    public String getName() {
+        return name;
+    }
 
     String[][] board = new String[][]
             {

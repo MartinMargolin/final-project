@@ -10,6 +10,8 @@ public class Controller
 {
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
     int turnRotation;
+    Board B1 = new Board();
+    Board B2 = new Board();
 
     public void run()
     {
@@ -24,20 +26,20 @@ public class Controller
         System.out.println("Player one enter name ");
 
         in = input();
-        /*if (!in.equals("")) {
-            P1.setName(in);
+        if (!in.equals("")) {
+            B1.setName(in);
         } else {
-            P1.setName("Human1");
-        }*/
+            B1.setName("PLayer1");
+        }
 
         System.out.println("Player two enter name ");
 
         in = input();
-        /*if (!in.equals("")) {
-            P2.setName(in);
+        if (!in.equals("")) {
+            B2.setName(in);
         } else {
-            P2.setName("Human2");
-        }*/
+            B2.setName("Player2");
+        }
 
         Board board = new Board();
         int game = 1;
