@@ -31,9 +31,9 @@ public class Board
     public boolean checkForHit(int x, int y)
     {
 
-    if(board[x+1][y+1] == "○")
+    if(board[x-1][y-1] == "○")
     {
-        board[x+1][y+1] = "X";
+        board[x-1][y-1] = "X";
         System.out.println("You Have Hit!");
         return true;
 
@@ -59,7 +59,11 @@ public class Board
 
     public void setPiece(int pieceSize, int rotationFromCenter, int x, int y)
     {
-
+        int shift = 0;
+        for(int i = 0; i < pieceSize; i++)
+        {
+            board[x-1][y-1] = "○";
+        }
 
     }
 
