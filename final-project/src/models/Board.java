@@ -62,7 +62,18 @@ public class Board
         int shift = 0;
         for(int i = 0; i < pieceSize; i++)
         {
-            board[x-1][y-1] = "○";
+            switch (rotationFromCenter)
+            {
+                case 1:
+                    board[x][y + shift] = "○";
+                case 2:
+                    board[x][y - shift] = "○";
+                case 3:
+                    board[x - shift][y] = "○";
+                case 4:
+                    board[x + shift][y] = "○";
+            }
+            board[x][y] = "○";
         }
 
     }
