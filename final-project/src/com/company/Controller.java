@@ -6,21 +6,22 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Controller
-{
+public class Controller {
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
     int turnRotation;
     int turn;
+    int piecePlacement1;
+    int piecePlacement2;
     Board B1 = new Board();
     Board B2 = new Board();
 
-    public void run()
-    {
-       Board board = new Board();
-       board.printBoard("a", "b");
-       board.setPiece(5,1,4,4);
-       board.printBoard("a","b");
-        System.out.println(board.checkPieceOK(5,4,4,7));
+    public void run() {
+        Board board = new Board();
+        board.printBoard("a", "b");
+        if (board.checkPieceOK(3, 2, 3, 5)) {
+
+        }
+
 
         mainMenu();
     }
@@ -168,4 +169,17 @@ public class Controller
         return input;
     }
 
+
+    public void placePiece(int turn) {
+                switch(turn)
+                {
+                    case 1:
+                        System.out.println(B1.getName() + "'s turn.");
+
+                    case 2:
+                        System.out.println(B2.getName() + "'s turn");
+                }
+                promptForInt("Placing piece size: " + ,);
+
+    }
 }
