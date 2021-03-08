@@ -89,8 +89,8 @@ public class Board
         for(int i = 0; i < pieceSize; i++)
         {
 
-            System.out.println(i);
-            System.out.println(shift);
+           // System.out.println(i);
+           // System.out.println(shift);
             try {
                 switch (rotationFromCenter) {
                     case 1:
