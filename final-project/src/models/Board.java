@@ -4,6 +4,17 @@ public class Board
 {
     String name = "Player"; // default
 
+    // Piece Initialization for multi-method use
+    Piece P1 = new Piece(5);
+    Piece P2 = new Piece(4);
+    Piece P3 = new Piece(3);
+    Piece P4 = new Piece(3);
+    Piece P5 = new Piece(2);
+
+    //noting which piece to use next;
+    int pNum = 1;
+
+
     public void setName(String in) {
         System.out.println("Your player name is: " + in);
         this.name = in;
@@ -57,8 +68,23 @@ public class Board
         }
     }
 
-    public void setPiece(int pieceSize, int rotationFromCenter, int x, int y)
+    public void setPiece(int pieceSize, int rotationFromCenter, int x , int y)
     {
+        switch (pNum)
+        {
+            case 1:
+                P1.setStats(pieceSize,rotationFromCenter,x,y);
+            case 2:
+                P2.setStats(pieceSize,rotationFromCenter,x,y);
+            case 3:
+                P3.setStats(pieceSize,rotationFromCenter,x,y);
+            case 4:
+                P4.setStats(pieceSize,rotationFromCenter,x,y);
+            case 5:
+                P5.setStats(pieceSize,rotationFromCenter,x,y);
+        }
+        x--;
+        y--;
         int shift = 0;
         for(int i = 0; i < pieceSize; i++)
         {
@@ -85,6 +111,8 @@ public class Board
 
     public boolean checkPieceOK(int pieceSize, int rotationFromCenter, int x, int y)
     {
+        x--;
+        y--;
         int shift = 0;
         for(int i = 0; i < pieceSize; i++)
         {
