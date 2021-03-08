@@ -16,7 +16,10 @@ public class Controller
 
     public void run()
     {
-        // new Board().printBoard("Yeuh", "Yeuh");
+       Board board = new Board();
+       board.printBoard("a", "b");
+       board.setPiece(2,1,4,4);
+       board.printBoard("a","b");
 
         mainMenu();
     }
