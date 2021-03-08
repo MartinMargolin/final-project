@@ -65,15 +65,20 @@ public class Board
             switch (rotationFromCenter)
             {
                 case 1:
-                    board[x][y + shift] = "○";
+                    board[y - shift][x] = "○";
+                    break;
                 case 2:
-                    board[x][y - shift] = "○";
+                    board[y + shift][x] = "○";
+                    break;
                 case 3:
-                    board[x - shift][y] = "○";
+                    board[y][x - shift] = "○";
+                    break;
                 case 4:
-                    board[x + shift][y] = "○";
+                    board[y][x + shift] = "○";
+                    break;
             }
-            board[x][y] = "○";
+            shift++;
+
         }
 
     }
@@ -86,7 +91,7 @@ public class Board
 
             switch(rotationFromCenter) {
                 case 1:
-                    if (board[x][y + shift] == "○")
+                    if (board[y - shift][x] == "○")
                     {
                         return false;
 
@@ -97,7 +102,7 @@ public class Board
                     }
 
                 case 2:
-                    if (board[x][y - shift] == "○")
+                    if (board[y + shift][x] == "○")
                     {
                         return false;
 
@@ -107,7 +112,7 @@ public class Board
                         break;
                     }
                 case 3:
-                    if (board[x - shift][y] == "○")
+                    if (board[y][x - shift] == "○")
                     {
                         return false;
                     }
@@ -118,7 +123,7 @@ public class Board
                     }
 
                 case 4:
-                    if (board[x + shift][y] == "○")
+                    if (board[y][x + shift] == "○")
                     {
                         return false;
 

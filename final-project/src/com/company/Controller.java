@@ -18,8 +18,9 @@ public class Controller
     {
        Board board = new Board();
        board.printBoard("a", "b");
-       board.setPiece(2,1,4,4);
+       board.setPiece(5,1,4,4);
        board.printBoard("a","b");
+        System.out.println(board.checkPieceOK(5,1,4,7));
 
         mainMenu();
     }
