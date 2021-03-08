@@ -1,7 +1,6 @@
 package models;
 
-public class Board
-{
+public class Board {
     String name = "Player"; // default
 
     // Piece Initialization for multi-method use
@@ -11,7 +10,7 @@ public class Board
     Piece P4 = new Piece(3);
     Piece P5 = new Piece(2);
 
-    //noting which piece to use next;
+    // Noting which piece to use next;
     int pNum = 1;
 
 
@@ -39,21 +38,17 @@ public class Board
 
     // Pieces: | 5, 4, 3, 3, 2 | ○
 
-    public boolean checkForHit(int x, int y)
-    {
+    public boolean checkForHit(int x, int y) {
 
-    if(board[x-1][y-1] == "○")
-    {
-        board[x-1][y-1] = "X";
-        System.out.println("You Have Hit!");
-        return true;
+        if (board[x - 1][y - 1] == "○") {
+            board[x - 1][y - 1] = "X";
+            System.out.println("You Have Hit!");
+            return true;
 
-    }
-    else
-    {
-        System.out.println("You Have Missed!");
-        return false;
-    }
+        } else {
+            System.out.println("You Have Missed!");
+            return false;
+        }
 
     }
 
@@ -68,28 +63,24 @@ public class Board
         }
     }
 
-    public void setPiece(int pieceSize, int rotationFromCenter, int x , int y)
-    {
-        switch (pNum)
-        {
+    public void setPiece(int pieceSize, int rotationFromCenter, int x, int y) {
+        switch (pNum) {
             case 1:
-                P1.setStats(pieceSize,rotationFromCenter,x,y);
+                P1.setStats(pieceSize, rotationFromCenter, x, y);
             case 2:
-                P2.setStats(pieceSize,rotationFromCenter,x,y);
+                P2.setStats(pieceSize, rotationFromCenter, x, y);
             case 3:
-                P3.setStats(pieceSize,rotationFromCenter,x,y);
+                P3.setStats(pieceSize, rotationFromCenter, x, y);
             case 4:
-                P4.setStats(pieceSize,rotationFromCenter,x,y);
+                P4.setStats(pieceSize, rotationFromCenter, x, y);
             case 5:
-                P5.setStats(pieceSize,rotationFromCenter,x,y);
+                P5.setStats(pieceSize, rotationFromCenter, x, y);
         }
         x--;
         y--;
         int shift = 0;
-        for(int i = 0; i < pieceSize; i++)
-        {
-            switch (rotationFromCenter)
-            {
+        for (int i = 0; i < pieceSize; i++) {
+            switch (rotationFromCenter) {
                 case 1:
                     board[y - shift][x] = "○";
                     break;
@@ -109,16 +100,14 @@ public class Board
 
     }
 
-    public boolean checkPieceOK(int pieceSize, int rotationFromCenter, int x, int y)
-    {
+    public boolean checkPieceOK(int pieceSize, int rotationFromCenter, int x, int y) {
         x--;
         y--;
         int shift = 0;
-        for(int i = 0; i < pieceSize; i++)
-        {
+        for (int i = 0; i < pieceSize; i++) {
 
-           // System.out.println(i);
-           // System.out.println(shift);
+            // System.out.println(i);
+            // System.out.println(shift);
             try {
                 switch (rotationFromCenter) {
                     case 1:
@@ -152,8 +141,7 @@ public class Board
                             break;
                         }
                 }
-            } catch(Exception e)
-            {
+            } catch (Exception e) {
                 //System.out.println("This caught an out of bounds piece check");
                 return false;
 

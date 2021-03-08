@@ -6,21 +6,25 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Controller
-{
+public class Controller {
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
     int turnRotation;
     int turn;
     Board B1 = new Board();
     Board B2 = new Board();
 
-    public void run()
-    {
-       Board board = new Board();
-       board.printBoard("a", "b");
-       board.setPiece(5,1,4,4);
-       board.printBoard("a","b");
-        System.out.println(board.checkPieceOK(5,4,4,7));
+    // Rotation from center 1,2,3,4
+    //1 = up
+    //2 = down
+    //3 = left
+    //4 = right
+
+    public void run() {
+        /*Board board = new Board();
+        board.printBoard("a", "b");
+        board.setPiece(5, 1, 4, 4);
+        board.printBoard("a", "b");
+        System.out.println(board.checkPieceOK(5, 4, 4, 7));*/
 
         mainMenu();
     }
@@ -34,7 +38,7 @@ public class Controller
         if (!in.equals("")) {
             B1.setName(in);
         } else {
-            B1.setName("PLayer1");
+            B1.setName("Player1");
         }
 
         System.out.println("Player two enter name ");
@@ -49,17 +53,15 @@ public class Controller
         int game = 1;
 
         // Create Method to place pieces and call it here
+        playerPlacePieces();
 
-
-        /*board.printBoard(B1.getName(), B2.getName());*/
-        /*startingPlayer(P1.getName(), P2.getName());*/
         do {
 
             switch (turnRotation) {
 
                 case 1:
-                    B2.printBoard(B1.getName(), B2.getName());
-                    turn = promptForInt("\n\n" + B1.getName() + " drop a bomb!! (///): ", 1, 8);
+                    /*B2.printBoard(B1.getName(), B2.getName());
+                    turn = promptForInt("\n\n" + B1.getName() + " drop a bomb!! (///): ", 1, 8);*/
 
                     /*try {
                         board.placePiece(P1.getColor(), turn);
@@ -77,8 +79,8 @@ public class Controller
                     break;
 
                 case 2:
-                    B1.printBoard(B1.getName(), B2.getName());
-                    turn = promptForInt("\n\n" + B2.getName() + " drop a bomb!! (///): ", 1, 8);
+                    /*B1.printBoard(B1.getName(), B2.getName());
+                    turn = promptForInt("\n\n" + B2.getName() + " drop a bomb!! (///): ", 1, 8);*/
 
                     /*try {
                         board.placePiece(P2.getColor(), turn);
@@ -112,7 +114,7 @@ public class Controller
             userChoice = promptForInt(mainMenu, minOption, maxOption);
             switch (userChoice) {
                 case 1:
-                    /*playerVPlayer();*/
+                    playerVPlayer();
                     /*prompt =  promptForInt("Would you like to play again? \n 1: Yes    0: No \n", 0,1);
                     if(prompt == 0)
                     {
@@ -126,6 +128,19 @@ public class Controller
         } while (userChoice > 0);
     }
 
+    public int positionMenu() {
+        System.out.println("\n\n");
+        String mainMenu = new StringBuilder("Position Menu\n\n").
+                append("1) Up\n").
+                append("2) Down\n").
+                append("3) Left\n").
+                append("4) Right\n").
+                append("0) Exit\n\n").append("Enter the number of your selection: ").toString();
+        int minOption = 0;
+        int maxOption = 4;
+
+        return promptForInt(mainMenu, minOption, maxOption);
+    }
 
     private int promptForInt(String prompt, int min, int max) {
         if (min > max) {
@@ -168,4 +183,22 @@ public class Controller
         return input;
     }
 
+    public void playerPlacePieces() {
+        int xAxis = 0;
+        int yAxis = 0;
+        System.out.println(B1.getName() + " place your 5-length ship!");
+
+        B1.printBoard(B1.getName(), B2.getName());
+        System.out.println("Choose which way your ship faces.");
+        int position = positionMenu();
+        xAxis = promptForInt("\n\n" + B1.getName() + " place your piece (1-8) x-axis: ", 1, 8);
+        yAxis = promptForInt("\n\n" + B1.getName() + " place your piece (1-8) y-axis: ", 1, 8);
+
+        if (B1.checkPieceOK(5, position, xAxis, yAxis)) {
+            B1.setPiece(5, position, xAxis, yAxis);
+        } else {
+            System.out.println("Invalid piece place!" + "\n" + "Try again.");
+        }
+        B1.printBoard(B1.getName(), B2.getName());
+    }
 }
