@@ -85,54 +85,52 @@ public class Board
 
     public boolean checkPieceOK(int pieceSize, int rotationFromCenter, int x, int y)
     {
+        int shift = 0;
         for(int i = 0; i < pieceSize; i++)
         {
-            int shift = 0;
 
-            switch(rotationFromCenter) {
-                case 1:
-                    if (board[y - shift][x] == "○")
-                    {
-                        return false;
+            System.out.println(i);
+            System.out.println(shift);
+            try {
+                switch (rotationFromCenter) {
+                    case 1:
+                        if (board[y - shift][x] == "○") {
+                            return false;
 
-                    }
-                    else
-                    {
-                        break;
-                    }
+                        } else {
+                            break;
+                        }
 
-                case 2:
-                    if (board[y + shift][x] == "○")
-                    {
-                        return false;
 
-                    }
-                    else
-                    {
-                        break;
-                    }
-                case 3:
-                    if (board[y][x - shift] == "○")
-                    {
-                        return false;
-                    }
+                    case 2:
+                        if (board[y + shift][x] == "○") {
+                            return false;
 
-                    else
-                    {
-                        break;
-                    }
+                        } else {
+                            break;
+                        }
+                    case 3:
+                        if (board[y][x - shift] == "○") {
+                            return false;
+                        } else {
+                            break;
+                        }
 
-                case 4:
-                    if (board[y][x + shift] == "○")
-                    {
-                        return false;
+                    case 4:
+                        if (board[y][x + shift] == "○") {
+                            return false;
 
-                    }
-                    else
-                    {
-                        break;
-                    }
+                        } else {
+                            break;
+                        }
+                }
+            } catch(Exception e)
+            {
+                //System.out.println("This caught an out of bounds piece check");
+                return false;
+
             }
+            shift++;
         }
         return true;
     }
