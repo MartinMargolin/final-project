@@ -54,7 +54,7 @@ public class Controller {
         playerPlacePieces();
 
         System.out.println("\n\n" + B1.getName() + " goes first!");
-
+        turnRotation = 1;
         do {
 
             switch (turnRotation) {
@@ -71,23 +71,23 @@ public class Controller {
 
                     xAxis = promptForInt("\n\n" + B1.getName() + " drop a bomb!! (1-8) x-axis: ", 1, 8);
                     yAxis = promptForInt("\n\n" + B1.getName() + " drop a bomb!! (1-8) y-axis: ", 1, 8);
+                    if(B1.checkAtkBoard(xAxis,yAxis) == true) {
+                        if (B2.checkForHit(xAxis, yAxis) == true) {
 
-                    if (B2.checkForHit(xAxis, yAxis) == 1) {
+                            blankBoard.printAtkBoard();
+                            if (B2.getTotalHealth() == 0) {
+                                System.out.println(B1.getName() + "Has sunk " + B2.getName() + "'s battleships!");
+                                game = 0;
 
-                        blankBoard.printAtkBoard();
-                        if(B2.getTotalHealth() == 0)
-                        {
-                            System.out.println(B1.getName() + "Has sunk " + B2.getName() + "'s battleships!");
-                            game = 0;
+                            }
 
+                            turnRotation = 2;
+                        } else if (B2.checkForHit(xAxis, yAxis) == false) {
+                            /*System.out.println("You missed!");*/
+                            turnRotation = 2;
                         }
-
-                        turnRotation = 2;
-                    } else if(B2.checkForHit(xAxis, yAxis) == 2) {
-                        /*System.out.println("You missed!");*/
-                        turnRotation = 2;
-                    } else if(B2.checkForHit(xAxis, yAxis) == 3) {
-                        /*System.out.println("Invalid or Repeat attack!" + "\n" + "Try again.");*/
+                    } else
+                    {
                         turnRotation = 1;
                     }
                     break;
@@ -114,21 +114,21 @@ public class Controller {
 
                     xAxis = promptForInt("\n\n" + B2.getName() + " drop a bomb!! (1-8) x-axis: ", 1, 8);
                     yAxis = promptForInt("\n\n" + B2.getName() + " drop a bomb!! (1-8) y-axis: ", 1, 8);
-
-                    if (B1.checkForHit(xAxis, yAxis) == 1) {
+                    if (B2.checkAtkBoard(xAxis,yAxis) == true) {
+                        if (B1.checkForHit(xAxis, yAxis) == true) {
 
                             blankBoard.printAtkBoard();
-                        if(B1.getTotalHealth() == 0)
-                        {
-                            System.out.println(B2.getName() + "Has sunk " + B1.getName() + "'s battleships!");
-                            game = 0;
+                            if (B1.getTotalHealth() == 0) {
+                                System.out.println(B2.getName() + "Has sunk " + B1.getName() + "'s battleships!");
+                                game = 0;
 
+                            }
+                            turnRotation = 1;
+                        } else if (B1.checkForHit(xAxis, yAxis) == false) {
+                            turnRotation = 1;
                         }
-                        turnRotation = 1;
-                    } else if (B1.checkForHit(xAxis, yAxis) == 2) {
-                        turnRotation = 1;
-                    } else if(B1.checkForHit(xAxis, yAxis) == 3) {
-                        /*System.out.println("Invalid or Repeat attack!" + "\n" + "Try again.");*/
+                    } else
+                    {
                         turnRotation = 2;
                     }
                     break;

@@ -53,38 +53,47 @@ public class Board {
 
     // Pieces: | 5, 4, 3, 3, 2 | ○
 
-    public int checkForHit(int x, int y) {
+    public boolean checkForHit(int x, int y) {
         int c = 1;
         do {
             switch (c)
             {
                 case 1:
-                    if (atkBoard[x - 1][y - 1] != "X")
-                    {
-                        atkBoard[x - 1][y - 1] = "X";
+
                         if (board[x - 1][y - 1] == "○")
                         {
                             board[x - 1][y - 1] = "!!";
                             System.out.println("You Have Hit!");
-                            c = 0;
                             totalHealth--;
+                            c = 0;
+
+
 
 
                         } else {
                             System.out.println("You Have Missed!");
-                            return 2;
+                            return false;
                         }
 
                     }
-                    else
-                    {
-                        System.out.println("You can't attack there, please try again.");
-                        return 3;
-                    }
-            }
+
         }while(c == 1);
-        return 1;
+        return true;
     }
+
+    public boolean checkAtkBoard(int x, int y)
+    {
+        if(atkBoard[x-1][y-1] == "X")
+        {
+            System.out.println("You have already attacked here, try again.");
+            return false;
+        } else
+        {
+            atkBoard[x-1][y-1] = "X";
+            return true;
+        }
+    }
+
 
     public void printAtkBoard()
     {
