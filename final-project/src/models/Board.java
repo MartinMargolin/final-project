@@ -194,4 +194,8 @@ public class Board {
         return true;
     }
 
+    public void atkFindPiece(int x, int y)
+    {
+
+    }
 }
