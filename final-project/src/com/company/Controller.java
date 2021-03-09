@@ -12,6 +12,7 @@ public class Controller {
     int turn;
     Board B1 = new Board();
     Board B2 = new Board();
+    Board blankBoard = new Board();
 
     // Rotation from center 1,2,3,4
     //1 = up
@@ -46,6 +47,9 @@ public class Controller {
 
         int game = 1;
 
+        int xAxis = 0;
+        int yAxis = 0;
+
         // Create Method to place pieces and call it here
         playerPlacePieces();
 
@@ -54,8 +58,16 @@ public class Controller {
             switch (turnRotation) {
 
                 case 1:
-                    /*B2.printBoard(B1.getName(), B2.getName());
-                    turn = promptForInt("\n\n" + B1.getName() + " drop a bomb!! (///): ", 1, 8);*/
+                    xAxis = promptForInt("\n\n" + B1.getName() + " drop a bomb!! (1-8) x-axis: ", 1, 8);
+                    yAxis = promptForInt("\n\n" + B1.getName() + " drop a bomb!! (1-8) y-axis: ", 1, 8);
+
+                    /*if (B1.checkPieceOK(5, position, xAxis, yAxis)) {
+                        B1.setPiece(5, position, xAxis, yAxis);
+
+                        blankBoard.printBoard(B1.getName(), B2.getName());
+
+                        turnRotation = 2;
+                    }
 
                     /*try {
                         board.placePiece(P1.getColor(), turn);
@@ -73,8 +85,16 @@ public class Controller {
                     break;
 
                 case 2:
-                    /*B1.printBoard(B1.getName(), B2.getName());
-                    turn = promptForInt("\n\n" + B2.getName() + " drop a bomb!! (///): ", 1, 8);*/
+                    xAxis = promptForInt("\n\n" + B2.getName() + " drop a bomb!! (1-8) x-axis: ", 1, 8);
+                    yAxis = promptForInt("\n\n" + B2.getName() + " drop a bomb!! (1-8) y-axis: ", 1, 8);
+
+                    /*if (B1.checkPieceOK(5, position, xAxis, yAxis)) {
+                        B1.setPiece(5, position, xAxis, yAxis);
+
+                        blankBoard.printBoard(B1.getName(), B2.getName());
+
+                        turnRotation = 1;
+                    }
 
                     /*try {
                         board.placePiece(P2.getColor(), turn);
