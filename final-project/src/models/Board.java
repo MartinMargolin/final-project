@@ -196,6 +196,116 @@ public class Board {
 
     public void atkFindPiece(int x, int y)
     {
+        int pieceSize = 0;
+        int rotationFromCenter = 0;
+        x--;
+        y--;
+        int shift = 0;
+        int a = 1;
+
+        do{
+            switch(a)
+            {
+                case 1:
+                    if(P1.getX() == x && P1.getY() == y) {
+                        pieceSize = P1.getPieceSize();
+                        rotationFromCenter = P1.getRotationFromCenter();
+                        a = 0;
+                        break;
+                    }
+                    else
+                    {
+                        a++;
+                        break;
+                    }
+                case 2:
+                    if(P2.getX() == x && P2.getY() == y) {
+                        pieceSize = P2.getPieceSize();
+                        rotationFromCenter = P2.getRotationFromCenter();
+                        a = 0;
+                        break;
+                    }
+                case 3:
+                    if(P3.getX() == x && P3.getY() == y) {
+                        pieceSize = P3.getPieceSize();
+                        rotationFromCenter = P3.getRotationFromCenter();
+                        a = 0;
+                        break;
+                    } else
+                    {
+                        a++;
+                        break;
+                    }
+                case 4:
+                    if(P4.getX() == x && P4.getY() == y) {
+                        pieceSize = P4.getPieceSize();
+                        rotationFromCenter = P4.getRotationFromCenter();
+                        a = 0;
+                        break;
+                    } else
+                    {
+                        a++;
+                        break;
+                    }
+                case 5:
+                    if(P5.getX() == x && P5.getY() == y) {
+                        pieceSize = P5.getPieceSize();
+                        rotationFromCenter = P5.getRotationFromCenter();
+                        a = 0;
+                        break;
+                    } else
+                    {
+                        a++;
+                        break;
+                    }
+            }
+
+        }while(a != 0);
+
+        for (int i = 0; i < pieceSize; i++) {
+
+            // System.out.println(i);
+            // System.out.println(shift);
+            try {
+                switch (rotationFromCenter) {
+                    case 1:
+                        if (board[y - shift][x] == "○") {
+
+                        } else {
+                            break;
+                        }
+
+
+                    case 2:
+                        if (board[y + shift][x] == "○") {
+                        } else {
+                            break;
+                        }
+                    case 3:
+                        if (board[y][x - shift] == "○") {
+
+                        } else {
+                            break;
+                        }
+
+                    case 4:
+                        if (board[y][x + shift] == "○") {
+
+                        } else {
+                            break;
+                        }
+                }
+            } catch (Exception e) {
+
+
+            }
+            shift++;
+        }
+    }
+
+    public void atkRecordPiece(int x, int y, int rotation, int size)
+    {
 
     }
+
 }
