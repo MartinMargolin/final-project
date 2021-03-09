@@ -9,16 +9,14 @@ import java.io.InputStreamReader;
 public class Controller {
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
     int turnRotation;
-    int turn;
     Board B1 = new Board();
     Board B2 = new Board();
 
-
     // Rotation from center 1,2,3,4
-    //1 = up
-    //2 = down
-    //3 = left
-    //4 = right
+    // 1 = up
+    // 2 = down
+    // 3 = left
+    // 4 = right
 
     public void run() {
         mainMenu();
@@ -50,7 +48,7 @@ public class Controller {
         int xAxis = 0;
         int yAxis = 0;
 
-        // Create Method to place pieces and call it here
+        // Method to place pieces
         playerPlacePieces();
 
         System.out.println("\n\n" + B1.getName() + " goes first!");
@@ -71,9 +69,9 @@ public class Controller {
 
                     xAxis = promptForInt("\n\n" + B1.getName() + " drop a bomb!! (1-8) x-axis: ", 1, 8);
                     yAxis = promptForInt("\n\n" + B1.getName() + " drop a bomb!! (1-8) y-axis: ", 1, 8);
-                    if(B1.checkAtkBoard(xAxis,yAxis) == true) {
+                    if (B1.checkAtkBoard(xAxis, yAxis) == true) {
                         if (B2.checkForHit(xAxis, yAxis) == true) {
-                            B1.atkBoardHit(xAxis,yAxis);
+                            B1.atkBoardHit(xAxis, yAxis);
                             if (B2.getTotalHealth() == 0) {
                                 System.out.println(B1.getName() + " has sunk " + B2.getName() + "'s battleships!" + "\n\n");
                                 game = 0;
@@ -85,8 +83,7 @@ public class Controller {
                             /*System.out.println("You missed!");*/
                             turnRotation = 2;
                         }
-                    } else
-                    {
+                    } else {
                         turnRotation = 1;
                     }
                     break;
@@ -97,10 +94,10 @@ public class Controller {
 
                     xAxis = promptForInt("\n\n" + B2.getName() + " drop a bomb!! (1-8) x-axis: ", 1, 8);
                     yAxis = promptForInt("\n\n" + B2.getName() + " drop a bomb!! (1-8) y-axis: ", 1, 8);
-                    if (B2.checkAtkBoard(xAxis,yAxis) == true) {
+                    if (B2.checkAtkBoard(xAxis, yAxis) == true) {
                         if (B1.checkForHit(xAxis, yAxis) == true) {
 
-                            B2.atkBoardHit(xAxis,yAxis);
+                            B2.atkBoardHit(xAxis, yAxis);
                             if (B1.getTotalHealth() == 0) {
                                 System.out.println(B2.getName() + " has sunk " + B1.getName() + "'s battleships!" + "\n\n");
                                 game = 0;
@@ -110,8 +107,7 @@ public class Controller {
                         } else if (B1.checkForHit(xAxis, yAxis) == false) {
                             turnRotation = 1;
                         }
-                    } else
-                    {
+                    } else {
                         turnRotation = 2;
                     }
                     break;
@@ -136,15 +132,6 @@ public class Controller {
             switch (userChoice) {
                 case 1:
                     playerVPlayer();
-                    /*prompt =  promptForInt("Would you like to play again? \n 1: Yes    0: No \n", 0,1);
-                    if(prompt == 0)
-                    {
-                        userChoice = 0;
-                        break;
-                    } else
-                    {
-                        break;
-                    }*/
             }
         } while (userChoice > 0);
     }

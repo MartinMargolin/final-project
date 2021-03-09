@@ -56,52 +56,43 @@ public class Board {
     public boolean checkForHit(int x, int y) {
         int c = 1;
         do {
-            switch (c)
-            {
+            switch (c) {
                 case 1:
 
-                        if (board[y - 1][x - 1] == "○")
-                        {
-                            board[y - 1][x - 1] = "!!";
-                            System.out.println("You Have Hit!");
-                            totalHealth--;
-                            c = 0;
+                    if (board[y - 1][x - 1] == "○") {
+                        board[y - 1][x - 1] = "!!";
+                        System.out.println("You Have Hit!");
+                        totalHealth--;
+                        c = 0;
 
 
-
-
-                        } else {
-                            System.out.println("You Have Missed!");
-                            return false;
-                        }
-
+                    } else {
+                        System.out.println("You Have Missed!");
+                        return false;
                     }
 
-        }while(c == 1);
+            }
+
+        } while (c == 1);
         return true;
     }
 
-    public boolean checkAtkBoard(int x, int y)
-    {
-        if(atkBoard[y-1][x-1] == "X" || atkBoard[y-1][x-1] == "!!")
-        {
+    public boolean checkAtkBoard(int x, int y) {
+        if (atkBoard[y - 1][x - 1] == "X") {
             System.out.println("You have already attacked here, try again.");
             return false;
-        } else
-        {
-            atkBoard[y-1][x-1] = "X";
+        } else {
+            atkBoard[y - 1][x - 1] = "X";
             return true;
         }
     }
 
-    public void atkBoardHit(int x, int y)
-    {
-        atkBoard[y -1][x - 1] = "!!";
+    public void atkBoardHit(int x, int y) {
+        atkBoard[y - 1][x - 1] = "!!";
     }
 
 
-    public void printAtkBoard()
-    {
+    public void printAtkBoard() {
         System.out.println("---------------");
         System.out.println("          Attack          ");
         for (int a = 0; a < 8; a++) {
@@ -112,6 +103,7 @@ public class Board {
         }
 
     }
+
     public void printBoard(String p1, String p2) {
         System.out.println("---------------");
         System.out.println("     [ " + p1 + " ]" + " -- " + "[ " + p2 + " ]");
@@ -210,81 +202,8 @@ public class Board {
         }
         return true;
     }
-    /*
 
-    public void atkFindPiece(int x, int y)
-    {
-        int pieceSize = 0;
-        int rotationFromCenter = 0;
-        x--;
-        y--;
-        int shift = 0;
-        int a = 1;
-
-        do{
-            switch(a)
-            {
-                case 1:
-                    if(P1.getX() == x && P1.getY() == y) {
-                        pieceSize = P1.getPieceSize();
-                        rotationFromCenter = P1.getRotationFromCenter();
-                        a = 0;
-                        break;
-                    }
-                    else
-                    {
-                        a++;
-                        break;
-                    }
-                case 2:
-                    if(P2.getX() == x && P2.getY() == y) {
-                        pieceSize = P2.getPieceSize();
-                        rotationFromCenter = P2.getRotationFromCenter();
-                        a = 0;
-                        break;
-                    }
-                case 3:
-                    if(P3.getX() == x && P3.getY() == y) {
-                        pieceSize = P3.getPieceSize();
-                        rotationFromCenter = P3.getRotationFromCenter();
-                        a = 0;
-                        break;
-                    } else
-                    {
-                        a++;
-                        break;
-                    }
-                case 4:
-                    if(P4.getX() == x && P4.getY() == y) {
-                        pieceSize = P4.getPieceSize();
-                        rotationFromCenter = P4.getRotationFromCenter();
-                        a = 0;
-                        break;
-                    } else
-                    {
-                        a++;
-                        break;
-                    }
-                case 5:
-                    if(P5.getX() == x && P5.getY() == y) {
-                        pieceSize = P5.getPieceSize();
-                        rotationFromCenter = P5.getRotationFromCenter();
-                        a = 0;
-                        break;
-                    } else
-                    {
-                        a++;
-                        break;
-                    }
-            }
-
-        }while(a != 0);
-
-    */
-
-
-    public int getTotalHealth()
-    {
+    public int getTotalHealth() {
 
         return this.totalHealth;
 
