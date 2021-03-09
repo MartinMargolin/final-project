@@ -262,45 +262,6 @@ public class Board {
 
         }while(a != 0);
 
-        for (int i = 0; i < pieceSize; i++) {
-
-            // System.out.println(i);
-            // System.out.println(shift);
-            try {
-                switch (rotationFromCenter) {
-                    case 1:
-                        if (board[y - shift][x] == "○") {
-
-                        } else {
-                            break;
-                        }
-
-
-                    case 2:
-                        if (board[y + shift][x] == "○") {
-                        } else {
-                            break;
-                        }
-                    case 3:
-                        if (board[y][x - shift] == "○") {
-
-                        } else {
-                            break;
-                        }
-
-                    case 4:
-                        if (board[y][x + shift] == "○") {
-
-                        } else {
-                            break;
-                        }
-                }
-            } catch (Exception e) {
-
-
-            }
-            shift++;
-        }
     }
 
     public void atkRecordPiece(int x, int y, int rotation, int size)
