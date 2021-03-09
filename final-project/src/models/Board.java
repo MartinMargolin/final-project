@@ -75,7 +75,7 @@ public class Board {
                     }
                     else
                     {
-                        System.out.println("You can't place there, please try again.");
+                        System.out.println("You can't attack there, please try again.");
                         return 3;
                     }
             }
