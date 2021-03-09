@@ -78,7 +78,7 @@ public class Board {
     }
 
     public boolean checkAtkBoard(int x, int y) {
-        if (atkBoard[y - 1][x - 1] == "X") {
+        if (atkBoard[y - 1][x - 1] == "X" || atkBoard[y-1][x-1] == "!!" ) {
             System.out.println("You have already attacked here, try again.");
             return false;
         } else {
