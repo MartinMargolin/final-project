@@ -36,22 +36,65 @@ public class Board {
 
             };
 
+    String[][] atkBoard = new String[][]
+            {
+                    {"~", "~", "~", "~", "~", "~", "~", "~"},
+                    {"~", "~", "~", "~", "~", "~", "~", "~"},
+                    {"~", "~", "~", "~", "~", "~", "~", "~"},
+                    {"~", "~", "~", "~", "~", "~", "~", "~"},
+                    {"~", "~", "~", "~", "~", "~", "~", "~"},
+                    {"~", "~", "~", "~", "~", "~", "~", "~"},
+                    {"~", "~", "~", "~", "~", "~", "~", "~"},
+                    {"~", "~", "~", "~", "~", "~", "~", "~"},
+
+            };
+
     // Pieces: | 5, 4, 3, 3, 2 | ○
 
-    public boolean checkForHit(int x, int y) {
+    public int checkForHit(int x, int y) {
+        int c = 1;
+        do {
+            switch (c)
+            {
+                case 1:
+                    if (atkBoard[x - 1][y - 1] != "X")
+                    {
+                        atkBoard[x - 1][y - 1] = "X";
+                        if (board[x - 1][y - 1] == "○")
+                        {
+                            board[x - 1][y - 1] = "X";
+                            System.out.println("You Have Hit!");
+                            c = 0;
 
-        if (board[x - 1][y - 1] == "○") {
-            board[x - 1][y - 1] = "X";
-            System.out.println("You Have Hit!");
-            return true;
 
-        } else {
-            System.out.println("You Have Missed!");
-            return false;
+                        } else {
+                            System.out.println("You Have Missed!");
+                            return 2;
+                        }
+
+                    }
+                    else
+                    {
+                        System.out.println("You can't place there, please try again.");
+                        return 3;
+                    }
+            }
+        }while(c == 1);
+        return 1;
+    }
+
+    public void printAtkBoard()
+    {
+        System.out.println("---------------");
+        System.out.println("          Attack          ");
+        for (int a = 0; a < 8; a++) {
+            System.out.println();
+            for (int i = 0; i < 8; i++) {
+                System.out.print("[" + atkBoard[a][i] + "] ");
+            }
         }
 
     }
-
     public void printBoard(String p1, String p2) {
         System.out.println("---------------");
         System.out.println("     [ " + p1 + " ]" + " -- " + "[ " + p2 + " ]");
