@@ -73,8 +73,6 @@ public class Controller {
                     yAxis = promptForInt("\n\n" + B1.getName() + " drop a bomb!! (1-8) y-axis: ", 1, 8);
                     if(B1.checkAtkBoard(xAxis,yAxis) == true) {
                         if (B2.checkForHit(xAxis, yAxis) == true) {
-
-                            B1.printAtkBoard();
                             if (B2.getTotalHealth() == 0) {
                                 System.out.println(B1.getName() + "Has sunk " + B2.getName() + "'s battleships!");
                                 game = 0;
@@ -117,7 +115,7 @@ public class Controller {
                     if (B2.checkAtkBoard(xAxis,yAxis) == true) {
                         if (B1.checkForHit(xAxis, yAxis) == true) {
 
-                            B2.printAtkBoard();
+
                             if (B1.getTotalHealth() == 0) {
                                 System.out.println(B2.getName() + "Has sunk " + B1.getName() + "'s battleships!");
                                 game = 0;

@@ -60,9 +60,10 @@ public class Board {
             {
                 case 1:
 
-                        if (board[x - 1][y - 1] == "○")
+                        if (board[y - 1][x - 1] == "○")
                         {
-                            board[x - 1][y - 1] = "!!";
+                            board[y - 1][x - 1] = "!!";
+                            atkBoard[x - 1][y - 1] = "!!";
                             System.out.println("You Have Hit!");
                             totalHealth--;
                             c = 0;
@@ -83,13 +84,13 @@ public class Board {
 
     public boolean checkAtkBoard(int x, int y)
     {
-        if(atkBoard[x-1][y-1] == "X")
+        if(atkBoard[y-1][x-1] == "X")
         {
             System.out.println("You have already attacked here, try again.");
             return false;
         } else
         {
-            atkBoard[x-1][y-1] = "X";
+            atkBoard[y-1][x-1] = "X";
             return true;
         }
     }
