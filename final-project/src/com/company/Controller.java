@@ -73,7 +73,7 @@ public class Controller {
                         if (B2.checkForHit(xAxis, yAxis) == true) {
                             B1.atkBoardHit(xAxis, yAxis);
                             if (B2.getTotalHealth() == 0) {
-                                System.out.println(B1.getName() + "Has sunk " + B2.getName() + "'s battleships!");
+                                System.out.println(B1.getName() + " has sunk " + B2.getName() + "'s battleships!");
                                 game = 0;
 
                             }
@@ -115,7 +115,7 @@ public class Controller {
 
                             B2.atkBoardHit(xAxis, yAxis);
                             if (B1.getTotalHealth() == 0) {
-                                System.out.println(B2.getName() + "Has sunk " + B1.getName() + "'s battleships!");
+                                System.out.println(B2.getName() + " has sunk " + B1.getName() + "'s battleships!");
                                 game = 0;
 
                             }
@@ -158,6 +158,7 @@ public class Controller {
             switch (userChoice) {
                 case 1:
                     playerVPlayer();
+                    userChoice = 0;
             }
         } while (userChoice > 0);
     }
