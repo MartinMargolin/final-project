@@ -63,7 +63,6 @@ public class Board {
                         if (board[y - 1][x - 1] == "○")
                         {
                             board[y - 1][x - 1] = "!!";
-                            atkBoard[x - 1][y - 1] = "!!";
                             System.out.println("You Have Hit!");
                             totalHealth--;
                             c = 0;
@@ -93,6 +92,11 @@ public class Board {
             atkBoard[y-1][x-1] = "X";
             return true;
         }
+    }
+
+    public void atkBoardHit(int x, int y)
+    {
+        atkBoard[y -1][x - 1] = "!!";
     }
 
 
