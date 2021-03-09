@@ -12,7 +12,7 @@ public class Controller {
     int turn;
     Board B1 = new Board();
     Board B2 = new Board();
-    Board blankBoard = new Board();
+
 
     // Rotation from center 1,2,3,4
     //1 = up
@@ -67,21 +67,21 @@ public class Controller {
                 case 1:
                     System.out.println("\n\n" + B1.getName() + " time to attack!");
 
-                    blankBoard.printAtkBoard();
+                    B1.printAtkBoard();
 
                     xAxis = promptForInt("\n\n" + B1.getName() + " drop a bomb!! (1-8) x-axis: ", 1, 8);
                     yAxis = promptForInt("\n\n" + B1.getName() + " drop a bomb!! (1-8) y-axis: ", 1, 8);
                     if(B1.checkAtkBoard(xAxis,yAxis) == true) {
                         if (B2.checkForHit(xAxis, yAxis) == true) {
 
-                            blankBoard.printAtkBoard();
+                            B1.printAtkBoard();
                             if (B2.getTotalHealth() == 0) {
                                 System.out.println(B1.getName() + "Has sunk " + B2.getName() + "'s battleships!");
                                 game = 0;
 
                             }
 
-                            turnRotation = 2;
+                            turnRotation = 1;
                         } else if (B2.checkForHit(xAxis, yAxis) == false) {
                             /*System.out.println("You missed!");*/
                             turnRotation = 2;
@@ -110,20 +110,20 @@ public class Controller {
                 case 2:
                     System.out.println("\n\n" + B2.getName() + " time to attack!");
 
-                    blankBoard.printAtkBoard();
+                    B2.printAtkBoard();
 
                     xAxis = promptForInt("\n\n" + B2.getName() + " drop a bomb!! (1-8) x-axis: ", 1, 8);
                     yAxis = promptForInt("\n\n" + B2.getName() + " drop a bomb!! (1-8) y-axis: ", 1, 8);
                     if (B2.checkAtkBoard(xAxis,yAxis) == true) {
                         if (B1.checkForHit(xAxis, yAxis) == true) {
 
-                            blankBoard.printAtkBoard();
+                            B2.printAtkBoard();
                             if (B1.getTotalHealth() == 0) {
                                 System.out.println(B2.getName() + "Has sunk " + B1.getName() + "'s battleships!");
                                 game = 0;
 
                             }
-                            turnRotation = 1;
+                            turnRotation = 2;
                         } else if (B1.checkForHit(xAxis, yAxis) == false) {
                             turnRotation = 1;
                         }
