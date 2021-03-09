@@ -12,7 +12,8 @@ public class Controller {
     int turn;
     Board B1 = new Board();
     Board B2 = new Board();
-    Board blankBoard = new Board();
+    Board B1AttackBoard = new Board();
+    Board B2AttackBoard = new Board();
 
     // Rotation from center 1,2,3,4
     //1 = up
@@ -53,21 +54,27 @@ public class Controller {
         // Create Method to place pieces and call it here
         playerPlacePieces();
 
+        System.out.println("\n\n" + B1.getName() + " goes first!");
+
         do {
 
             switch (turnRotation) {
 
                 case 1:
+                    System.out.println("\n\n" + B1.getName() + " time to attack!");
                     xAxis = promptForInt("\n\n" + B1.getName() + " drop a bomb!! (1-8) x-axis: ", 1, 8);
                     yAxis = promptForInt("\n\n" + B1.getName() + " drop a bomb!! (1-8) y-axis: ", 1, 8);
 
-                    /*if (B1.checkPieceOK(5, position, xAxis, yAxis)) {
-                        B1.setPiece(5, position, xAxis, yAxis);
+                    if (B2.checkForHit(xAxis, yAxis)) {
 
-                        blankBoard.printBoard(B1.getName(), B2.getName());
+                        B1AttackBoard.printBoard(B1.getName(), B2.getName());
 
                         turnRotation = 2;
+                    } else {
+                        System.out.println("Invalid piece place!" + "\n" + "Try again.");
+                        turnRotation = 1;
                     }
+                    break;
 
                     /*try {
                         board.placePiece(P1.getColor(), turn);
@@ -79,22 +86,26 @@ public class Controller {
                         System.out.println("Player:" + P1.getName() + " has won the game!");
                         game = 0;
                         break;
-                    }*/
+                    }
 
                     turnRotation = 2;
-                    break;
+                    break;*/
 
                 case 2:
+                    System.out.println("\n\n" + B2.getName() + " time to attack!");
                     xAxis = promptForInt("\n\n" + B2.getName() + " drop a bomb!! (1-8) x-axis: ", 1, 8);
                     yAxis = promptForInt("\n\n" + B2.getName() + " drop a bomb!! (1-8) y-axis: ", 1, 8);
 
-                    /*if (B1.checkPieceOK(5, position, xAxis, yAxis)) {
-                        B1.setPiece(5, position, xAxis, yAxis);
+                    if (B1.checkForHit(xAxis, yAxis)) {
 
-                        blankBoard.printBoard(B1.getName(), B2.getName());
+                        B2AttackBoard.printBoard(B1.getName(), B2.getName());
 
                         turnRotation = 1;
+                    } else {
+                        System.out.println("Invalid piece place!" + "\n" + "Try again.");
+                        turnRotation = 2;
                     }
+                    break;
 
                     /*try {
                         board.placePiece(P2.getColor(), turn);
@@ -107,9 +118,6 @@ public class Controller {
                         game = 0;
                         break;
                     }*/
-
-                    turnRotation = 1;
-                    break;
             }
         } while (game == 1);
     }
