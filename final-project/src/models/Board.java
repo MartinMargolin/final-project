@@ -10,6 +10,8 @@ public class Board {
     Piece P4 = new Piece(3);
     Piece P5 = new Piece(2);
 
+    int totalHealth = 17;
+
     // Noting which piece to use next;
     int pNum = 1;
 
@@ -62,9 +64,10 @@ public class Board {
                         atkBoard[x - 1][y - 1] = "X";
                         if (board[x - 1][y - 1] == "○")
                         {
-                            board[x - 1][y - 1] = "X";
+                            board[x - 1][y - 1] = "!!";
                             System.out.println("You Have Hit!");
                             c = 0;
+                            totalHealth--;
 
 
                         } else {
@@ -193,6 +196,7 @@ public class Board {
         }
         return true;
     }
+    /*
 
     public void atkFindPiece(int x, int y)
     {
@@ -262,50 +266,13 @@ public class Board {
 
         }while(a != 0);
 
-        for (int i = 0; i < pieceSize; i++) {
-
-            // System.out.println(i);
-            // System.out.println(shift);
-            try {
-                switch (rotationFromCenter) {
-                    case 1:
-                        if (board[y - shift][x] == "○") {
-
-                        } else {
-                            break;
-                        }
+    */
 
 
-                    case 2:
-                        if (board[y + shift][x] == "○") {
-                        } else {
-                            break;
-                        }
-                    case 3:
-                        if (board[y][x - shift] == "○") {
-
-                        } else {
-                            break;
-                        }
-
-                    case 4:
-                        if (board[y][x + shift] == "○") {
-
-                        } else {
-                            break;
-                        }
-                }
-            } catch (Exception e) {
-
-
-            }
-            shift++;
-        }
-    }
-
-    public void atkRecordPiece(int x, int y, int rotation, int size)
+    public int getTotalHealth()
     {
 
-    }
+        return this.totalHealth;
 
+    }
 }

@@ -75,6 +75,12 @@ public class Controller {
                     if (B2.checkForHit(xAxis, yAxis) == 1) {
 
                         blankBoard.printAtkBoard();
+                        if(B2.getTotalHealth() == 0)
+                        {
+                            System.out.println(B1.getName() + "Has sunk " + B2.getName() + "'s battleships!");
+                            game = 0;
+
+                        }
 
                         turnRotation = 2;
                     } else if(B2.checkForHit(xAxis, yAxis) == 2) {
@@ -111,8 +117,13 @@ public class Controller {
 
                     if (B1.checkForHit(xAxis, yAxis) == 1) {
 
-                        blankBoard.printAtkBoard();
+                            blankBoard.printAtkBoard();
+                        if(B1.getTotalHealth() == 0)
+                        {
+                            System.out.println(B2.getName() + "Has sunk " + B1.getName() + "'s battleships!");
+                            game = 0;
 
+                        }
                         turnRotation = 1;
                     } else if (B1.checkForHit(xAxis, yAxis) == 2) {
                         turnRotation = 1;
