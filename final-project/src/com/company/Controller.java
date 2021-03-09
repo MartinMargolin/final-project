@@ -53,7 +53,8 @@ public class Controller {
         int game = 1;
 
         // Create Method to place pieces and call it here
-        playerPlacePieces();
+        player1PlacePieces();
+        player2PlacePieces();
 
         do {
 
@@ -183,13 +184,14 @@ public class Controller {
         return input;
     }
 
-    public void playerPlacePieces() {
+    public void player1PlacePieces() {
+        // Place 5 Piece
         int xAxis = 0;
         int yAxis = 0;
-        System.out.println(B1.getName() + " place your 5-length ship!");
+        System.out.println("\n" + B1.getName() + " place your 5-length ship!");
 
         B1.printBoard(B1.getName(), B2.getName());
-        System.out.println("Choose which way your ship faces.");
+        System.out.println("\n" + "Choose which way your ship faces.");
         int position = positionMenu();
         xAxis = promptForInt("\n\n" + B1.getName() + " place your piece (1-8) x-axis: ", 1, 8);
         yAxis = promptForInt("\n\n" + B1.getName() + " place your piece (1-8) y-axis: ", 1, 8);
@@ -200,5 +202,145 @@ public class Controller {
             System.out.println("Invalid piece place!" + "\n" + "Try again.");
         }
         B1.printBoard(B1.getName(), B2.getName());
+
+        // Place 4 Piece
+        System.out.println("\n" + B1.getName() + " place your 4-length ship!");
+
+        System.out.println("\n" + "Choose which way your ship faces.");
+        position = positionMenu();
+        xAxis = promptForInt("\n\n" + B1.getName() + " place your piece (1-8) x-axis: ", 1, 8);
+        yAxis = promptForInt("\n\n" + B1.getName() + " place your piece (1-8) y-axis: ", 1, 8);
+
+        if (B1.checkPieceOK(4, position, xAxis, yAxis)) {
+            B1.setPiece(4, position, xAxis, yAxis);
+        } else {
+            System.out.println("Invalid piece place!" + "\n" + "Try again.");
+        }
+        B1.printBoard(B1.getName(), B2.getName());
+
+        // Place 3 Piece
+        System.out.println("\n" + B1.getName() + " place your 3-length ship!");
+
+        System.out.println("\n" + "Choose which way your ship faces.");
+        position = positionMenu();
+        xAxis = promptForInt("\n\n" + B1.getName() + " place your piece (1-8) x-axis: ", 1, 8);
+        yAxis = promptForInt("\n\n" + B1.getName() + " place your piece (1-8) y-axis: ", 1, 8);
+
+        if (B1.checkPieceOK(3, position, xAxis, yAxis)) {
+            B1.setPiece(3, position, xAxis, yAxis);
+        } else {
+            System.out.println("Invalid piece place!" + "\n" + "Try again.");
+        }
+        B1.printBoard(B1.getName(), B2.getName());
+
+        // Place 3 Piece
+        System.out.println("\n" + B1.getName() + " place your 3-length ship!");
+
+        System.out.println("\n" + "Choose which way your ship faces.");
+        position = positionMenu();
+        xAxis = promptForInt("\n\n" + B1.getName() + " place your piece (1-8) x-axis: ", 1, 8);
+        yAxis = promptForInt("\n\n" + B1.getName() + " place your piece (1-8) y-axis: ", 1, 8);
+
+        if (B1.checkPieceOK(3, position, xAxis, yAxis)) {
+            B1.setPiece(3, position, xAxis, yAxis);
+        } else {
+            System.out.println("Invalid piece place!" + "\n" + "Try again.");
+        }
+        B1.printBoard(B1.getName(), B2.getName());
+
+        // Place 2 Piece
+        System.out.println("\n" + B1.getName() + " place your 2-length ship!");
+
+        System.out.println("\n" + "Choose which way your ship faces.");
+        position = positionMenu();
+        xAxis = promptForInt("\n\n" + B1.getName() + " place your piece (1-8) x-axis: ", 1, 8);
+        yAxis = promptForInt("\n\n" + B1.getName() + " place your piece (1-8) y-axis: ", 1, 8);
+
+        if (B1.checkPieceOK(2, position, xAxis, yAxis)) {
+            B1.setPiece(2, position, xAxis, yAxis);
+        } else {
+            System.out.println("Invalid piece place!" + "\n" + "Try again.");
+        }
+        B1.printBoard(B1.getName(), B2.getName());
+    }
+
+    public void player2PlacePieces() {
+        // Place 5 Piece
+        int xAxis = 0;
+        int yAxis = 0;
+        System.out.println("\n" + B2.getName() + " place your 5-length ship!");
+
+        B2.printBoard(B1.getName(), B2.getName());
+        System.out.println("\n" + "Choose which way your ship faces.");
+        int position = positionMenu();
+        xAxis = promptForInt("\n\n" + B2.getName() + " place your piece (1-8) x-axis: ", 1, 8);
+        yAxis = promptForInt("\n\n" + B2.getName() + " place your piece (1-8) y-axis: ", 1, 8);
+
+        if (B2.checkPieceOK(5, position, xAxis, yAxis)) {
+            B2.setPiece(5, position, xAxis, yAxis);
+        } else {
+            System.out.println("Invalid piece place!" + "\n" + "Try again.");
+        }
+        B2.printBoard(B1.getName(), B2.getName());
+
+        // Place 4 Piece
+        System.out.println("\n" + B2.getName() + " place your 4-length ship!");
+
+        System.out.println("\n" + "Choose which way your ship faces.");
+        position = positionMenu();
+        xAxis = promptForInt("\n\n" + B2.getName() + " place your piece (1-8) x-axis: ", 1, 8);
+        yAxis = promptForInt("\n\n" + B2.getName() + " place your piece (1-8) y-axis: ", 1, 8);
+
+        if (B2.checkPieceOK(4, position, xAxis, yAxis)) {
+            B2.setPiece(4, position, xAxis, yAxis);
+        } else {
+            System.out.println("Invalid piece place!" + "\n" + "Try again.");
+        }
+        B2.printBoard(B1.getName(), B2.getName());
+
+        // Place 3 Piece
+        System.out.println("\n" + B2.getName() + " place your 3-length ship!");
+
+        System.out.println("\n" + "Choose which way your ship faces.");
+        position = positionMenu();
+        xAxis = promptForInt("\n\n" + B2.getName() + " place your piece (1-8) x-axis: ", 1, 8);
+        yAxis = promptForInt("\n\n" + B2.getName() + " place your piece (1-8) y-axis: ", 1, 8);
+
+        if (B2.checkPieceOK(3, position, xAxis, yAxis)) {
+            B2.setPiece(3, position, xAxis, yAxis);
+        } else {
+            System.out.println("Invalid piece place!" + "\n" + "Try again.");
+        }
+        B2.printBoard(B1.getName(), B2.getName());
+
+        // Place 3 Piece
+        System.out.println("\n" + B2.getName() + " place your 3-length ship!");
+
+        System.out.println("\n" + "Choose which way your ship faces.");
+        position = positionMenu();
+        xAxis = promptForInt("\n\n" + B2.getName() + " place your piece (1-8) x-axis: ", 1, 8);
+        yAxis = promptForInt("\n\n" + B2.getName() + " place your piece (1-8) y-axis: ", 1, 8);
+
+        if (B2.checkPieceOK(3, position, xAxis, yAxis)) {
+            B2.setPiece(3, position, xAxis, yAxis);
+        } else {
+            System.out.println("Invalid piece place!" + "\n" + "Try again.");
+        }
+        B2.printBoard(B1.getName(), B2.getName());
+
+        // Place 2 Piece
+        System.out.println("\n" + B2.getName() + " place your 2-length ship!");
+
+        System.out.println("\n" + "Choose which way your ship faces.");
+        position = positionMenu();
+        xAxis = promptForInt("\n\n" + B2.getName() + " place your piece (1-8) x-axis: ", 1, 8);
+        yAxis = promptForInt("\n\n" + B2.getName() + " place your piece (1-8) y-axis: ", 1, 8);
+
+        if (B2.checkPieceOK(2, position, xAxis, yAxis)) {
+            B2.setPiece(2, position, xAxis, yAxis);
+        } else {
+            System.out.println("Invalid piece place!" + "\n" + "Try again.");
+        }
+        B2.printBoard(B1.getName(), B2.getName());
     }
 }
