@@ -12,8 +12,7 @@ public class Controller {
     int turn;
     Board B1 = new Board();
     Board B2 = new Board();
-    Board B1AttackBoard = new Board();
-    Board B2AttackBoard = new Board();
+    Board blankBoard = new Board();
 
     // Rotation from center 1,2,3,4
     //1 = up
@@ -60,18 +59,29 @@ public class Controller {
 
             switch (turnRotation) {
 
+                // Hits
+                // 1 - hit
+                // 2 - missed
+                // 3 - repeat atk
+
                 case 1:
                     System.out.println("\n\n" + B1.getName() + " time to attack!");
+
+                    blankBoard.printAtkBoard();
+
                     xAxis = promptForInt("\n\n" + B1.getName() + " drop a bomb!! (1-8) x-axis: ", 1, 8);
                     yAxis = promptForInt("\n\n" + B1.getName() + " drop a bomb!! (1-8) y-axis: ", 1, 8);
 
-                    if (B2.checkForHit(xAxis, yAxis)) {
+                    if (B2.checkForHit(xAxis, yAxis) == 1) {
 
-                        B1AttackBoard.printBoard(B1.getName(), B2.getName());
+                        blankBoard.printAtkBoard();
 
                         turnRotation = 2;
-                    } else {
-                        System.out.println("Invalid piece place!" + "\n" + "Try again.");
+                    } else if(B2.checkForHit(xAxis, yAxis) == 2) {
+                        /*System.out.println("You missed!");*/
+                        turnRotation = 2;
+                    } else if(B2.checkForHit(xAxis, yAxis) == 3) {
+                        /*System.out.println("Invalid or Repeat attack!" + "\n" + "Try again.");*/
                         turnRotation = 1;
                     }
                     break;
@@ -93,16 +103,21 @@ public class Controller {
 
                 case 2:
                     System.out.println("\n\n" + B2.getName() + " time to attack!");
+
+                    blankBoard.printAtkBoard();
+
                     xAxis = promptForInt("\n\n" + B2.getName() + " drop a bomb!! (1-8) x-axis: ", 1, 8);
                     yAxis = promptForInt("\n\n" + B2.getName() + " drop a bomb!! (1-8) y-axis: ", 1, 8);
 
-                    if (B1.checkForHit(xAxis, yAxis)) {
+                    if (B1.checkForHit(xAxis, yAxis) == 1) {
 
-                        B2AttackBoard.printBoard(B1.getName(), B2.getName());
+                        blankBoard.printAtkBoard();
 
                         turnRotation = 1;
-                    } else {
-                        System.out.println("Invalid piece place!" + "\n" + "Try again.");
+                    } else if (B1.checkForHit(xAxis, yAxis) == 2) {
+                        turnRotation = 1;
+                    } else if(B1.checkForHit(xAxis, yAxis) == 3) {
+                        /*System.out.println("Invalid or Repeat attack!" + "\n" + "Try again.");*/
                         turnRotation = 2;
                     }
                     break;
