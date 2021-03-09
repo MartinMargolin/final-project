@@ -75,7 +75,7 @@ public class Controller {
                         if (B2.checkForHit(xAxis, yAxis) == true) {
                             B1.atkBoardHit(xAxis,yAxis);
                             if (B2.getTotalHealth() == 0) {
-                                System.out.println(B1.getName() + "Has sunk " + B2.getName() + "'s battleships!");
+                                System.out.println(B1.getName() + " has sunk " + B2.getName() + "'s battleships!" + "\n\n");
                                 game = 0;
 
                             }
@@ -90,22 +90,6 @@ public class Controller {
                         turnRotation = 1;
                     }
                     break;
-
-                    /*try {
-                        board.placePiece(P1.getColor(), turn);
-                    } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
-                        System.out.println("Your move was invalid. " + "\n" + "Try again!!");
-                    }
-
-                    if (board.checkWinner(P1.getColor())) {
-                        System.out.println("Player:" + P1.getName() + " has won the game!");
-                        game = 0;
-                        break;
-                    }
-
-                    turnRotation = 2;
-                    break;*/
-
                 case 2:
                     System.out.println("\n\n" + B2.getName() + " time to attack!");
 
@@ -118,7 +102,7 @@ public class Controller {
 
                             B2.atkBoardHit(xAxis,yAxis);
                             if (B1.getTotalHealth() == 0) {
-                                System.out.println(B2.getName() + "Has sunk " + B1.getName() + "'s battleships!");
+                                System.out.println(B2.getName() + " has sunk " + B1.getName() + "'s battleships!" + "\n\n");
                                 game = 0;
 
                             }
@@ -131,18 +115,6 @@ public class Controller {
                         turnRotation = 2;
                     }
                     break;
-
-                    /*try {
-                        board.placePiece(P2.getColor(), turn);
-                    } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
-                        System.out.println("Your move was invalid. " + "\n" + "Try again!!");
-                    }
-
-                    if (board.checkWinner(P2.getColor())) {
-                        System.out.println("Player:" + P2.getName() + " has won the game!");
-                        game = 0;
-                        break;
-                    }*/
             }
         } while (game == 1);
     }
@@ -156,6 +128,8 @@ public class Controller {
         int maxOption = 1;
         int userChoice;
 
+
+        turnRotation = 1;
 
         do {
             userChoice = promptForInt(mainMenu, minOption, maxOption);
